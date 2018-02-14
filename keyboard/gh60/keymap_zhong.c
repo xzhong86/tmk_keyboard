@@ -31,8 +31,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
         CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT, \
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
-        LCTL,LGUI,LALT,          SPC,                     FN0, RALT,APP, RCTL),
+        LCTL,LALT,FN4,           SPC,                     FN0, RALT,RGUI,RCTL),
 #define FN_OpenFnMap     0
+#define FN_OpenSpcFnMap  4
 
     /* Overlay : SpaceFN
      * ,-----------------------------------------------------------.
@@ -49,9 +50,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [LAYER_MAP_SPACEFN] = KEYMAP_ANSI(
         GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL,  \
-        TRNS,NO,  NO,  NO,  NO,  NO,  NO,  PGUP,UP,  PGDN,PSCR,SLCK,PAUS,INS,  \
-        TRNS,NO,  NO,  NO,  NO,  NO,  HOME,LEFT,DOWN,RGHT,NO,  NO,       NO,   \
-        TRNS,NO,  NO,  NO,  NO,  SPC, END, NO,  BSPC,DEL, NO,            TRNS, \
+        TRNS,NO,  NO,  NO,  NO,  NO,  NO,  HOME,UP,  END, NO,  NO,  NO,  INS,  \
+        TRNS,NO,  NO,  NO,  NO,  NO,  PGUP,LEFT,DOWN,RGHT,NO,  NO,       NO,   \
+        TRNS,NO,  NO,  NO,  NO,  SPC, PGDN,NO,  BSPC,DEL, NO,            TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
     // Overlay : Enable SpaceFn
@@ -66,7 +67,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Functions for Fn
     [LAYER_MAP_FN] = KEYMAP_ANSI(
         NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   \
-        NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   \
+        NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,NO,   \
         FN3, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  GRV, NO,       NO,   \
         CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            CAPS, \
         NO,  NO,  NO,            FN2,                     NO,  NO,  NO,  NO),
@@ -91,4 +92,6 @@ const action_t PROGMEM fn_actions[] = {
     [FN_SpaceFnMap]     = ACTION_LAYER_TAP_KEY(LAYER_MAP_SPACEFN, KC_SPACE),
     [FN_EnableSpaceFn]  = ACTION_LAYER_TOGGLE(LAYER_EN_SPACEFN),
     [FN_CapsAsLctl]     = ACTION_LAYER_TOGGLE(LAYER_CAPS_AS_LCTL),
+    [FN_OpenSpcFnMap]   = ACTION_LAYER_MOMENTARY(LAYER_MAP_SPACEFN),
 };
+
