@@ -4,6 +4,11 @@ This repository includes keyboard and converter firmware projects built with [`t
 
 The latest source code is available here: <http://github.com/tmk/tmk_keyboard>
 
+BruceZH comment
+-------
+This is a for of <http://github.com/tmk/tmk_keyboard>.
+My GH60 keymap is keyboard/gh60/keymap_zhong.c.
+
 
 Updates
 -------
