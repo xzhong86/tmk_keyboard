@@ -3,6 +3,7 @@
 enum {
 	LAYER_DEFAULT,
 	LAYER_CAPS_AS_LCTL,
+	LAYER_LGUI_AS_FN,
 	LAYER_EN_SPACEFN,
 	LAYER_MAP_SPACEFN,
 	LAYER_MAP_FN,
@@ -29,11 +30,10 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LAYER_DEFAULT] = KEYMAP_ANSI(
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
-        CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT, \
+        LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT, \
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
-        LCTL,LALT,FN4,           SPC,                     FN0, RALT,RGUI,RCTL),
+        LCTL,LGUI,LALT,          SPC,                     FN0, RALT,RGUI,RCTL),
 #define FN_OpenFnMap     0
-#define FN_OpenSpcFnMap  4
 
     /* Overlay : SpaceFN
      * ,-----------------------------------------------------------.
@@ -70,17 +70,27 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,NO,   \
         FN3, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  GRV, NO,       NO,   \
         CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            CAPS, \
-        NO,  NO,  NO,            FN2,                     NO,  NO,  NO,  NO),
+        NO,  FN5, NO,            FN2,                     NO,  NO,  NO,  NO),
 #define FN_EnableSpaceFn  2
 #define FN_CapsAsLctl     3
+#define FN_LGuiAsFn       5
 
     // Overlay : Use Crtl instead of CapsLock
     [LAYER_CAPS_AS_LCTL] = KEYMAP_ANSI(
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
-        LCTL,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        CAPS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+
+    // Overlay : Use LGUI as Space Fn
+    [LAYER_LGUI_AS_FN] = KEYMAP_ANSI(
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
+        TRNS,FN4, TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+#define FN_OpenSpcFnMap  4
 
 };
 
@@ -92,6 +102,7 @@ const action_t PROGMEM fn_actions[] = {
     [FN_SpaceFnMap]     = ACTION_LAYER_TAP_KEY(LAYER_MAP_SPACEFN, KC_SPACE),
     [FN_EnableSpaceFn]  = ACTION_LAYER_TOGGLE(LAYER_EN_SPACEFN),
     [FN_CapsAsLctl]     = ACTION_LAYER_TOGGLE(LAYER_CAPS_AS_LCTL),
+    [FN_LGuiAsFn]       = ACTION_LAYER_TOGGLE(LAYER_LGUI_AS_FN),
     [FN_OpenSpcFnMap]   = ACTION_LAYER_MOMENTARY(LAYER_MAP_SPACEFN),
 };
 
