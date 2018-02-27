@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum {
 	LAYER_DEFAULT,
+//        LAYER_K60_MASK,
 	LAYER_DIS_SPACEFN,
 	LAYER_DIS_CAPSASCTL,
 	LAYER_MAP_SPACEFN,
@@ -41,7 +42,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
   [LAYER_MAP_SPACEFN] = KEYMAP_K87(
     NO,       NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    NO,  NO,  NO,
     NO,  F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS,  NO,  NO,  NO,
-    CAPS,NO,  NO,  NO,  NO,  NO,  NO,  HOME,UP,  END, PGUP,NO,  NO,  DEL,   NO,  NO,  NO,
+    TRNS,NO,  NO,  NO,  NO,  NO,  NO,  HOME,UP,  END, PGUP,NO,  BSPC,DEL,   NO,  NO,  NO,
     TRNS,NO,  NO,  NO,  NO,  NO,  HOME,LEFT,DOWN,RGHT,PGDN,NO,       TRNS,              
     TRNS,NO,  NO,  NO,  NO,  NO,  SPC, NO,  NO,  NO,  NO,            TRNS,       NO,   
     TRNS,TRNS,TRNS,               TRNS,               TRNS,TRNS,TRNS,TRNS,  NO,  NO,  NO
