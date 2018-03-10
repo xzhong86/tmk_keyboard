@@ -90,3 +90,13 @@ const action_t PROGMEM fn_actions[] = {
 //    [FN_OpenSpcFnMap]   = ACTION_LAYER_MOMENTARY(LAYER_MAP_SPACEFN),
 };
 
+void hook_layer_change(uint32_t layer_state)
+{
+    if (layer_state & (1 << LAYER_MAP_SPACEFN)) {
+        DDRD  |= (1<<4);
+        PORTD |= (1<<4);
+    } else {
+        DDRD  &= ~(1<<4);
+        PORTD &= ~(1<<4);
+    }
+}
