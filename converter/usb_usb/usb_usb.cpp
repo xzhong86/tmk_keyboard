@@ -231,4 +231,12 @@ void led_set(uint8_t usb_led)
     kbd2.SetReport(0, 0, 2, 0, 1, &usb_led);
     kbd3.SetReport(0, 0, 2, 0, 1, &usb_led);
     kbd4.SetReport(0, 0, 2, 0, 1, &usb_led);
+
+    if (usb_led & (1<<USB_LED_CAPS_LOCK)) {
+        DDRD  |= (1<<1);
+        PORTD |= (1<<1);
+    } else {
+        DDRD  &= ~(1<<1);
+        PORTD &= ~(1<<1);
+    }
 }

@@ -46,6 +46,8 @@ TMK_DIR ?= ../../tmk_core
 # Directory keyboard dependent files exist
 TARGET_DIR ?= .
 
+KEYMAP ?= zhong
+
 # MCU name
 MCU ?= atmega32u4
 

@@ -42,23 +42,24 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
   [LAYER_MAP_SPACEFN] = KEYMAP_K87(
     NO,       NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    NO,  NO,  NO,
     NO,  F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS,  NO,  NO,  NO,
-    TRNS,NO,  NO,  NO,  NO,  NO,  NO,  HOME,UP,  END, PGUP,NO,  BSPC,DEL,   NO,  NO,  NO,
+    TRNS,FN4, FN4, NO,  NO,  NO,  NO,  HOME,UP,  END, PGUP,NO,  BSPC,DEL,   NO,  NO,  NO,
     TRNS,NO,  NO,  NO,  NO,  NO,  HOME,LEFT,DOWN,RGHT,PGDN,NO,       TRNS,
     TRNS,NO,  DEL, NO,  NO,  NO,  SPC, NO,  NO,  NO,  NO,            TRNS,       NO,
     TRNS,TRNS,TRNS,               TRNS,               TRNS,TRNS,TRNS,TRNS,  NO,  NO,  NO
   ),
+#define FN_ToggleSpcfn  4
 
   [LAYER_MAP_FN] = KEYMAP_K87(
     NO,       NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    NO,  NO,  NO,
     NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    NO,  NO,  NO,
-    CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,NO,    NO,  NO,  NO,
+    CAPS,NO,  FN4, NO,  NO,  NO,  NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,NO,    NO,  NO,  NO,
     FN3, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       NO,
     CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            CAPS,       NO,
     NO,  NO,  NO,                 FN2,                NO,  NO,  NO,  NO,    NO,  NO,  NO
   ),
 #define FN_DisSpaceFn    2
 #define FN_DisCapsAsCtl  3
-#define FN_KbdLock       4
+//#define FN_KbdLock       4
 
   [LAYER_DIS_SPACEFN] = KEYMAP_K87(
     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  TRNS,TRNS,TRNS,
@@ -84,6 +85,7 @@ const action_t PROGMEM fn_actions[] = {
     [FN_SpaceFn]        = ACTION_LAYER_TAP_KEY(LAYER_MAP_SPACEFN, KC_SPACE),
     [FN_DisSpaceFn]     = ACTION_LAYER_TOGGLE(LAYER_DIS_SPACEFN),
     [FN_DisCapsAsCtl]   = ACTION_LAYER_TOGGLE(LAYER_DIS_CAPSASCTL),
+    [FN_ToggleSpcfn]    = ACTION_LAYER_TOGGLE(LAYER_MAP_SPACEFN),
 //    [FN_LGuiAsFn]       = ACTION_LAYER_TOGGLE(LAYER_LGUI_AS_FN),
 //    [FN_OpenSpcFnMap]   = ACTION_LAYER_MOMENTARY(LAYER_MAP_SPACEFN),
 };
