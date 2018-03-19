@@ -16,6 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "keymap_common.h"
+#include "board.h"
 
 enum {
 	LAYER_DEFAULT,
@@ -42,9 +43,9 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
   [LAYER_MAP_SPACEFN] = KEYMAP_K87(
     NO,       NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    NO,  NO,  NO,
     NO,  F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS,  NO,  NO,  NO,
-    TRNS,FN4, FN4, NO,  NO,  NO,  NO,  HOME,UP,  END, PGUP,NO,  BSPC,DEL,   NO,  NO,  NO,
-    TRNS,NO,  NO,  NO,  NO,  NO,  HOME,LEFT,DOWN,RGHT,PGDN,NO,       TRNS,
-    TRNS,NO,  DEL, NO,  NO,  NO,  SPC, NO,  NO,  NO,  NO,            TRNS,       NO,
+    TRNS,FN4, FN4, NO,  NO,  NO,  NO,  PGUP,UP,  NO,  NO,  PGUP,BSPC,DEL,   NO,  NO,  NO,
+    TRNS,NO,  NO,  NO,  NO,  NO,  HOME,LEFT,DOWN,RGHT,END, PGDN,     TRNS,
+    TRNS,NO,  DEL, NO,  NO,  NO,  SPC, PGDN,NO,  NO,  NO,            TRNS,       NO,
     TRNS,TRNS,TRNS,               TRNS,               TRNS,TRNS,TRNS,TRNS,  NO,  NO,  NO
   ),
 #define FN_ToggleSpcfn  4
@@ -93,10 +94,8 @@ const action_t PROGMEM fn_actions[] = {
 void hook_layer_change(uint32_t layer_state)
 {
     if (layer_state & (1 << LAYER_MAP_SPACEFN)) {
-        DDRD  |= (1<<4);
-        PORTD |= (1<<4);
+        LED_SPCFN_ON();
     } else {
-        DDRD  &= ~(1<<4);
-        PORTD &= ~(1<<4);
+        LED_SPCFN_OFF();
     }
 }

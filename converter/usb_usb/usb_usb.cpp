@@ -35,6 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "host.h"
 #include "keyboard.h"
 
+#include "board.h"
 
 /* KEY CODE to Matrix
  *
@@ -233,10 +234,8 @@ void led_set(uint8_t usb_led)
     kbd4.SetReport(0, 0, 2, 0, 1, &usb_led);
 
     if (usb_led & (1<<USB_LED_CAPS_LOCK)) {
-        DDRD  |= (1<<1);
-        PORTD |= (1<<1);
+        LED_CAPS_ON();
     } else {
-        DDRD  &= ~(1<<1);
-        PORTD &= ~(1<<1);
+        LED_CAPS_OFF();
     }
 }
