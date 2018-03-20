@@ -11,7 +11,7 @@
 		DDR##P &= ~(1<<(N)); PORT##P &= ~(1<<(N));	\
 	} while (0)
 
-#define ZHONG_BOARD_VER_0_1
+#define ZHONG_BOARD_VER_0_2
 
 #ifdef ZHONG_BOARD_VER_0_1 // use PortD 1/4
 
