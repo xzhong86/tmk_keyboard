@@ -13,8 +13,9 @@
 
 
 /* LED ping configuration */
-#define TMK_LED
-//#define LEONARDO_LED
+//#define TMK_LED
+#define LEONARDO_LED
+
 #if defined(TMK_LED)
 // For TMK converter and Teensy
 #define LED_TX_INIT    (DDRD  |=  (1<<6))
@@ -65,6 +66,15 @@ int main(void)
     // LED for debug
     LED_TX_INIT;
     LED_TX_ON;
+
+#ifdef LEONARDO_LED
+    // light off L,RX_LED led
+    DDRC  |=   1 << 7;
+    PORTC &= ~(1 << 7);
+    DDRB  |=   1 << 0;
+    PORTB |=  (1 << 0);
+#endif
+    
 
     debug_enable = true;
     debug_keyboard = true;

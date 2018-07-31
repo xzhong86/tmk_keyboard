@@ -42,12 +42,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         KE3,KE2,        K2C,                KE6,KE7,              K50,K51,K4F   \
 ) KEYMAP_ALL( \
              NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO, NO,                                               \
-    K29,     K3A,K3B,K3C,K3D,K3E,K3F,K40,K41,K42,K43,K44,K45,      K46,K47,K48,  NO, NO, NO, NO,  NO,      \
-    K35, K1E,K1F,K20,K21,K22,K23,K24,K25,K26,K27,K2D,K2E,NO, K2A,  K49,K4A,K4B,  NO, NO, NO, NO,  NO, NO,  \
-    K2B, K14,K1A,K08,K15,K17,K1C,K18,K0C,K12,K13,K2F,K30,    K31,  K4C,K4D,K4E,  NO, NO, NO, NO,  NO, NO,  \
-    CAPS,K04,K16,K07,K09,K0A,K0B,K0D,K0E,K0F,K33,K34,    NO, K28,                NO, NO, NO, NO,  NO, NO,  \
-    KE1, NO, K1D,K1B,K06,K19,K05,K11,K10,K36,K37,K38,    NO, KE5,      K52,      NO, NO, NO, NO,  NO, NO,  \
-    KE0, KE3,KE2,NO, NO,     K2C,    NO, NO, NO, KE6,KE7,NO, NO,   K50,K51,K4F,  NO,     NO, NO,  NO, NO   \
+    K29,     K3A,K3B,K3C,K3D,K3E,K3F,K40,K41,K42,K43,K44,K45,      K46,K47,K48,  VOLD,VOLU,MUTE,PWR,NO,      \
+    K35, K1E,K1F,K20,K21,K22,K23,K24,K25,K26,K27,K2D,K2E,NO, K2A,  K49,K4A,K4B,  NO, NO, NO, NO,    NO, NO,  \
+    K2B, K14,K1A,K08,K15,K17,K1C,K18,K0C,K12,K13,K2F,K30,    K31,  K4C,K4D,K4E,  NO, NO, NO, NO,    NO, NO,  \
+    CAPS,K04,K16,K07,K09,K0A,K0B,K0D,K0E,K0F,K33,K34,    NO, K28,                NO, NO, NO, NO,    NO, NO,  \
+    KE1, NO, K1D,K1B,K06,K19,K05,K11,K10,K36,K37,K38,    NO, KE5,      K52,      NO, NO, NO, NO,    NO, NO,  \
+    KE0, KE3,KE2,NO, NO,     K2C,    NO, NO, NO, KE6,KE7,APP,RCTL, K50,K51,K4F,  NO,     NO, NO,    NO, NO \
 )
 
 
@@ -59,14 +59,15 @@ enum {
 };
 
 const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
-  // (FN+p)BRK->PSCR, (FN+i)PSCR=>BRK
+  // (FN+p)BRK=>PSCR, (FN+i)PSCR=>BRK
+  // RALT=>FN0
   [LAYER_DEFAULT] = KEYMAP_HHKB(
          F1,  F2,  F3,  F4,     F5,  F6,  F7,  F8,    F9,  F10, F11, F12,       BRK, SLCK,PSCR,
     ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, GRV,BSLS,  INS, HOME,PGUP,
     TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,    BSPC,  DEL, END, PGDN,
     LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,         ENT,
-    FN2, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN3,               RSFT,       UP,
-         LGUI,LALT,          FN1,                RALT,FN0,                      LEFT,DOWN,RGHT
+    FN2, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,              FN3,        UP,
+         LGUI,LALT,          FN1,                FN0, RGUI,                     LEFT,DOWN,RGHT
   ),
 #define FN_OpenFnMap  0
 #define FN_SpaceFn    1
@@ -93,12 +94,12 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
   ),
 
   [LAYER_SHIFT_MAP] = KEYMAP_HHKB(
-         NO,  NO,  NO,  NO,     NO,  NO,  NO,  NO,    NO,  NO,  NO,  NO,        NO,  NO,  NO,
-    GRV, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, NO,  NO,  NO,
-    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     BSLS, NO,  NO,  NO,
+         TRNS,TRNS,TRNS,TRNS,   TRNS,TRNS,TRNS,TRNS,  TRNS,TRNS,TRNS,TRNS,      TRNS,TRNS,TRNS,
+    GRV, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,
+    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     BSLS, TRNS,TRNS,TRNS,
     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS,
-    LSFT,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               RSFT,      NO,
-         TRNS,TRNS,               TRNS,          TRNS,TRNS,                     NO,  NO,  NO
+    LSFT,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               RSFT,      TRNS,
+         TRNS,TRNS,               TRNS,          TRNS,TRNS,                     TRNS,TRNS,TRNS
   ),
 
 };

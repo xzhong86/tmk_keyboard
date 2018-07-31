@@ -11,7 +11,8 @@
 		DDR##P &= ~(1<<(N)); PORT##P &= ~(1<<(N));	\
 	} while (0)
 
-#define ZHONG_BOARD_VER_0_2
+//#define ZHONG_BOARD_VER_0_2
+#define BOARD_LEONARDO
 
 #ifdef ZHONG_BOARD_VER_0_1 // use PortD 1/4
 
@@ -28,6 +29,16 @@
 
 #define LED_SPCFN_ON()  PORT_OUT_0(D, 0)
 #define LED_SPCFN_OFF() PORT_OUT_Z(D, 0)
+
+#elif defined BOARD_LEONARDO
+
+// TX LED
+#define LED_CAPS_ON()   PORT_OUT_0(D, 5)
+#define LED_CAPS_OFF()  PORT_OUT_1(D, 5)
+// RX LED
+#define LED_SPCFN_ON()  PORT_OUT_0(B, 0)
+#define LED_SPCFN_OFF() PORT_OUT_1(B, 0)
+
 
 #else
 #error "Unknown Board!!!"

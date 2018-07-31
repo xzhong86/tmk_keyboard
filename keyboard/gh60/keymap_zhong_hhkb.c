@@ -28,31 +28,19 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------'
      */
     [LAYER_DEFAULT] = KEYMAP_HHKB(
-        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS, GRV, \
-        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,      \
+        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, NO,  \
+        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS,      \
         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,       \
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,     RSFT,FN0,       \
         NO,  LGUI,LALT,          FN1,                     NO,  RALT,RGUI,NO),
 #define FN_OpenFnMap      0
 #define FN_SpaceFnMap     1
 
-    /* Overlay : SpaceFN
-     * ,-----------------------------------------------------------.
-     * |`  | F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Delete |
-     * |-----------------------------------------------------------|
-     * |     |   |   |   |   |   |   |Hom|Up |End|Psc|Slk|Pau|Ins  |
-     * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |PgU|Lef|Dow|Rig|   |   |        |
-     * |-----------------------------------------------------------|
-     * |        |   |   |   |   |Spc|PgD|`  |~  |   |   |          |
-     * |-----------------------------------------------------------|
-     * |    |    |    |                        |    |    |    |    |
-     * `-----------------------------------------------------------'
-     */
+
     [LAYER_MAP_SPACEFN] = KEYMAP_HHKB(
         TRNS,F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS, TRNS, \
-        TRNS,NO,  NO,  NO,  NO,  NO,  NO,  PGUP,UP,  END, NO,  PGUP,DEL, TRNS, \
-        TRNS,NO,  NO,  NO,  NO,  NO,  HOME,LEFT,DOWN,RGHT,NO,  PGDN,     NO,   \
+        TRNS,NO,  NO,  NO,  NO,  NO,  NO,  PGUP,UP,  END, NO,  NO,  DEL, TRNS, \
+        TRNS,NO,  NO,  NO,  NO,  NO,  HOME,LEFT,DOWN,RGHT,NO,  GRV,      NO,   \
         TRNS,NO,  DEL, NO,  NO,  SPC, PGDN,NO,  BSPC,DEL, NO,       TRNS,NO,   \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
@@ -66,9 +54,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // Functions for Fn
     [LAYER_MAP_FN] = KEYMAP_HHKB(
-        NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO, \
+        GRV, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO, \
         NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,NO,   \
-        FN3, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       NO,   \
+        FN3, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  GRV,      NO,   \
         CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       CAPS,NO,   \
         NO,  FN5, NO,            FN2,                     NO,  NO,  NO,  NO),
 #define FN_DisableSpaceFn  2
